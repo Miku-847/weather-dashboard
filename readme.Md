@@ -13,8 +13,15 @@ Users can search for a city and view real-time weather data fetched from the Ope
 4. `state.js` updates the UI based on loading, success, or error state
 
 ---
-## API Key Notice
-This project uses a public API key for demonstration purposes only. In a production environment, API requests should be handled via a backend or proxy.
+## API Key & Security
+api.js sends requests to a Cloudflare Worker, which securely proxies the OpenWeather API. This project does NOT expose the OpenWeather API key in the frontend.
+
+This prevents:
+- API key leakage
+- abuse of the key
+- client-side tampering
+
+The frontend only communicates with the Cloudflare Worker endpoint.
 
 ---
 ## Project Structure
