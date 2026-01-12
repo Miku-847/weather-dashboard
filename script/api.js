@@ -1,14 +1,11 @@
-const API_KEY = "cfe08562f654561290362fcc7a5bd0af";
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
+const BASE_URL = "https://withered-firefly-77a1.meshoryneha222.workers.dev";
 
 export async function fetchWeather(city) {
-    const res = await fetch(
-        `${BASE_URL}?q=${city}&units=metric&appid=${API_KEY}`
-    );
+  const res = await fetch(`${BASE_URL}?city=${encodeURIComponent(city)}`);
 
-    if (!res.ok) {
-        throw new Error("City not found");
-    }
+  if (!res.ok) {
+    throw new Error("City not found");
+  }
 
-    return res.json();
+  return res.json();
 }
